@@ -1,0 +1,74 @@
+{% extends 'base.html' %}
+
+{% block title %}Inicio - Biblioteca Digital{% endblock %}
+
+{% block content %}
+<div class="row align-items-center">
+    <div class="col-lg-6">
+        <h1 class="display-4 fw-bold text-primary mb-4">
+            Bienvenido a la Biblioteca Digital
+        </h1>
+        
+        <p class="lead mb-4">
+            Descubre un mundo de conocimiento a través de nuestra extensa colección de libros digitales. 
+            Desde clásicos literarios hasta las últimas novedades, tenemos algo para cada lector.
+        </p>
+        
+        <p class="mb-4">
+            Nuestro catálogo incluye obras de diversos géneros y autores reconocidos, 
+            ofreciendo una experiencia de lectura enriquecedora y accesible desde cualquier dispositivo.
+        </p>
+        
+        <div class="d-grid gap-2 d-md-flex justify-content-md-start">
+            <a href="{% url 'libreria:catalogo' %}" class="btn btn-primary btn-lg px-4 me-md-2">
+                Explorar Catálogo
+            </a>
+            <a href="{% url 'libreria:contacto' %}" class="btn btn-outline-secondary btn-lg px-4">
+                Contactar
+            </a>
+        </div>
+    </div>
+    
+    <div class="col-lg-6 text-center">
+        <div class="book-shelf-container">
+            <div class="book-shelf">
+                <div class="book book-1"></div>
+                <div class="book book-2"></div>
+                <div class="book book-3"></div>
+                <div class="book book-4"></div>
+                <div class="book book-5"></div>
+                <div class="shelf"></div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div class="row mt-5">
+    <div class="col-12">
+        <h2 class="text-center mb-4">¿Por qué elegirnos?</h2>
+        <div class="row g-4">
+            <div class="col-md-4 text-center">
+                <div class="feature-icon mb-3">
+                    📖
+                </div>
+                <h4>Amplia Colección</h4>
+                <p>Miles de títulos disponibles en diferentes géneros y formatos.</p>
+            </div>
+            <div class="col-md-4 text-center">
+                <div class="feature-icon mb-3">
+                    🚀
+                </div>
+                <h4>Acceso Rápido</h4>
+                <p>Encuentra y accede a tus libros favoritos en segundos.</p>
+            </div>
+            <div class="col-md-4 text-center">
+                <div class="feature-icon mb-3">
+                    💻
+                </div>
+                <h4>Multiplataforma</h4>
+                <p>Lee desde cualquier dispositivo, en cualquier momento.</p>
+            </div>
+        </div>
+    </div>
+</div>
+{% endblock %}

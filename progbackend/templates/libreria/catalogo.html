@@ -1,0 +1,56 @@
+{% extends 'base.html' %}
+
+{% block title %}Catálogo - Biblioteca Digital{% endblock %}
+
+{% block content %}
+<div class="row mb-4">
+    <div class="col-12">
+        <h1 class="display-5 fw-bold text-primary">Catálogo de Libros</h1>
+        <p class="lead">Explora nuestra colección de libros digitales</p>
+    </div>
+</div>
+
+<div class="row g-4">
+    {% for libro in libros %}
+    <div class="col-lg-4 col-md-6">
+        <div class="card h-100 shadow-sm">
+            <div class="card-body d-flex flex-column">
+                <div class="text-center mb-3">
+                    <img src="{% load static %}{% static libro.portada %}" 
+                         alt="Portada de {{ libro.titulo }}" 
+                         class="book-cover-image mx-auto">
+                </div>
+                
+                <h5 class="card-title text-primary">{{ libro.titulo }}</h5>
+                <h6 class="card-subtitle mb-2 text-muted">Por {{ libro.autor }}</h6>
+                
+                <p class="card-text flex-grow-1">
+                    {{ libro.descripcion }}
+                </p>
+                
+                <div class="mt-auto">
+                    <a href="#" class="btn btn-outline-primary btn-sm">
+                        Ver Detalles
+                    </a>
+                    <a href="#" class="btn btn-success btn-sm ms-2">
+                        Leer
+                    </a>
+                </div>
+            </div>
+        </div>
+    </div>
+    {% endfor %}
+</div>
+
+<div class="row mt-5">
+    <div class="col-12 text-center">
+        <div class="alert alert-info">
+            <h5>📚 Más libros próximamente</h5>
+            <p class="mb-0">
+                Estamos constantemente agregando nuevos títulos a nuestro catálogo. 
+                ¡Vuelve pronto para descubrir más obras increíbles!
+            </p>
+        </div>
+    </div>
+</div>
+{% endblock %}

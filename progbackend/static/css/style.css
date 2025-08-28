@@ -1,0 +1,237 @@
+
+
+:root {
+    --primary-color: #0d6efd;
+    --secondary-color: #6c757d;
+    --success-color: #198754;
+    --info-color: #0dcaf0;
+    --warning-color: #ffc107;
+    --danger-color: #dc3545;
+    --light-color: #f8f9fa;
+    --dark-color: #212529;
+}
+
+/* Estilos generales */
+body {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    line-height: 1.6;
+}
+
+.text-primary {
+    color: var(--primary-color) !important;
+}
+
+.bg-primary {
+    background-color: var(--primary-color) !important;
+}
+
+/* Estilos para la estantería de libros */
+.book-shelf-container {
+    padding: 2rem;
+}
+
+.book-shelf {
+    position: relative;
+    width: 300px;
+    height: 200px;
+    margin: 0 auto;
+}
+
+.book {
+    position: absolute;
+    width: 40px;
+    height: 60px;
+    border-radius: 2px;
+    box-shadow: 2px 2px 5px rgba(0,0,0,0.3);
+    transition: transform 0.3s ease;
+}
+
+.book:hover {
+    transform: translateY(-5px);
+}
+
+.book-1 {
+    background: linear-gradient(45deg, #e74c3c, #c0392b);
+    left: 20px;
+    top: 20px;
+}
+
+.book-2 {
+    background: linear-gradient(45deg, #3498db, #2980b9);
+    left: 70px;
+    top: 15px;
+}
+
+.book-3 {
+    background: linear-gradient(45deg, #2ecc71, #27ae60);
+    left: 120px;
+    top: 25px;
+}
+
+.book-4 {
+    background: linear-gradient(45deg, #f39c12, #e67e22);
+    left: 170px;
+    top: 10px;
+}
+
+.book-5 {
+    background: linear-gradient(45deg, #9b59b6, #8e44ad);
+    left: 220px;
+    top: 20px;
+}
+
+.shelf {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    height: 15px;
+    background: linear-gradient(to bottom, #8B4513, #A0522D);
+    border-radius: 3px;
+    box-shadow: 0 2px 5px rgba(0,0,0,0.3);
+}
+
+/* Estilos para las portadas de libros en el catálogo */
+.book-cover-image {
+    width: 120px;
+    height: 180px;
+    object-fit: cover;
+    border-radius: 8px;
+    box-shadow: 0 4px 12px rgba(0,0,0,0.3);
+    margin-bottom: 1rem;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.book-cover-image:hover {
+    transform: scale(1.05);
+    box-shadow: 0 6px 20px rgba(0,0,0,0.4);
+}
+
+/* Estilos para los iconos de características */
+.feature-icon {
+    font-size: 3rem;
+    color: var(--primary-color);
+}
+
+/* Estilos para la información de contacto */
+.contact-info {
+    padding: 1rem;
+}
+
+.contact-icon {
+    font-size: 2.5rem;
+    color: var(--primary-color);
+}
+
+/* Estilos para las tarjetas del catálogo */
+.card {
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    border: none;
+    border-radius: 10px;
+}
+
+.card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 8px 25px rgba(0,0,0,0.15) !important;
+}
+
+.card-header {
+    border-radius: 10px 10px 0 0 !important;
+}
+
+/* Estilos para botones */
+.btn {
+    border-radius: 8px;
+    font-weight: 500;
+    transition: all 0.3s ease;
+}
+
+.btn:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 4px 12px rgba(0,0,0,0.15);
+}
+
+/* Estilos para formularios */
+.form-control {
+    border-radius: 8px;
+    border: 2px solid #e9ecef;
+    transition: border-color 0.3s ease, box-shadow 0.3s ease;
+}
+
+.form-control:focus {
+    border-color: var(--primary-color);
+    box-shadow: 0 0 0 0.2rem rgba(13, 110, 253, 0.25);
+}
+
+/* Estilos para el navbar */
+.navbar-brand {
+    font-weight: bold;
+    font-size: 1.5rem;
+}
+
+.nav-link {
+    font-weight: 500;
+    transition: color 0.3s ease;
+}
+
+.nav-link:hover {
+    color: var(--info-color) !important;
+}
+
+
+
+
+footer {
+    margin-top: auto;
+}
+
+/* Responsive adjustments */
+@media (max-width: 768px) {
+    .book-shelf {
+        width: 250px;
+        height: 150px;
+    }
+    
+    .book {
+        width: 30px;
+        height: 45px;
+    }
+    
+    .book-1 { left: 15px; top: 15px; }
+    .book-2 { left: 55px; top: 10px; }
+    .book-3 { left: 95px; top: 20px; }
+    .book-4 { left: 135px; top: 5px; }
+    .book-5 { left: 175px; top: 15px; }
+    
+    .display-4 {
+        font-size: 2.5rem;
+    }
+    
+    .display-5 {
+        font-size: 2rem;
+    }
+}
+
+/* Animaciones */
+@keyframes fadeInUp {
+    from {
+        opacity: 0;
+        transform: translateY(30px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+.card {
+    animation: fadeInUp 0.6s ease-out;
+}
+
+.card:nth-child(2) {
+    animation-delay: 0.1s;
+}
+
+.card:nth-child(3) {
+    animation-delay: 0.2s;
+}
