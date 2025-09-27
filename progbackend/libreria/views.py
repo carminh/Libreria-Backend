@@ -11,10 +11,11 @@ def catalogo(request):
 def contacto(request):
     if request.method == "POST":
         nombre = request.POST.get("nombre")
-        email = request.POST.get("email")
+        email = request.POST.get("correo")
+        edad = request.POST.get("edad")
         mensaje = request.POST.get("mensaje")
         
-        Contacto.objects.create(nombre=nombre, email=email, mensaje=mensaje)
+        Contacto.objects.create(nombre=nombre, email=email, edad=edad, mensaje=mensaje)
         return render(request, 'libreria/gracias.html')
     
     return render(request, 'libreria/contacto.html')

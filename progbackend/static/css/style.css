@@ -107,6 +107,28 @@ body {
     box-shadow: 0 6px 20px rgba(0,0,0,0.4);
 }
 
+/* Estilos para el placeholder de portadas */
+.book-cover-placeholder {
+    width: 120px;
+    height: 180px;
+    background: linear-gradient(135deg, #f8f9fa, #e9ecef);
+    border: 2px dashed #dee2e6;
+    border-radius: 8px;
+    box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+    margin-bottom: 1rem;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.book-cover-placeholder:hover {
+    transform: scale(1.05);
+    box-shadow: 0 6px 20px rgba(0,0,0,0.2);
+}
+
+.book-cover-placeholder span {
+    font-size: 3rem;
+    opacity: 0.6;
+}
+
 /* Estilos para los iconos de características */
 .feature-icon {
     font-size: 3rem;
