@@ -1,0 +1,28 @@
+{% extends 'base.html' %}
+
+{% block title %}Clientes - Biblioteca Digital{% endblock %}
+
+{% block content %}
+<h1 class="mb-4">Clientes Registrados</h1>
+
+<table class="table table-striped">
+    <thead class="table-dark">
+        <tr>
+            <th>Nombre</th>
+            <th>Email</th>
+            <th>Mensaje</th>
+            <th>Fecha</th>
+        </tr>
+    </thead>
+    <tbody>
+        {% for contacto in contactos %}
+        <tr>
+            <td>{{ contacto.nombre }}</td>
+            <td>{{ contacto.email }}</td>
+            <td>{{ contacto.mensaje }}</td>
+            <td>{{ contacto.fecha|date:"d/m/Y H:i" }}</td>
+        </tr>
+        {% endfor %}
+    </tbody>
+</table>
+{% endblock %}

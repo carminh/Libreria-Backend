@@ -1,0 +1,22 @@
+{% extends 'base.html' %}
+
+{% block title %}¡Gracias! - Biblioteca Digital{% endblock %}
+
+{% block content %}
+<div class="row justify-content-center mt-5">
+    <div class="col-md-8 text-center">
+        <div class="alert alert-success shadow-sm p-4">
+            <h1 class="display-4">¡Gracias por contactarnos!</h1>
+            <p class="lead mt-3">
+                Hemos recibido tu mensaje y nos pondremos en contacto contigo pronto.
+            </p>
+            <a href="{% url 'libreria:home' %}" class="btn btn-primary mt-4">
+                Volver al inicio
+            </a>
+            <a href="{% url 'libreria:catalogo' %}" class="btn btn-outline-primary mt-4 ms-2">
+                Explorar Catálogo
+            </a>
+        </div>
+    </div>
+</div>
+{% endblock %}
