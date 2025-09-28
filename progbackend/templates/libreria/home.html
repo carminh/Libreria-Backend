@@ -10,13 +10,14 @@
         </h1>
         
         <p class="lead mb-4">
-            Descubre un mundo de conocimiento a través de nuestra extensa colección de libros digitales. 
+            Descubre un mundo de conocimiento a través de nuestra extensa colección de <strong>{{ total_libros }} libros digitales</strong>. 
             Desde clásicos literarios hasta las últimas novedades, tenemos algo para cada lector.
         </p>
         
         <p class="mb-4">
             Nuestro catálogo incluye obras de diversos géneros y autores reconocidos, 
             ofreciendo una experiencia de lectura enriquecedora y accesible desde cualquier dispositivo.
+            <strong>{{ total_usuarios }} usuarios</strong> ya confían en nosotros.
         </p>
         
         <div class="d-grid gap-2 d-md-flex justify-content-md-start">
@@ -43,6 +44,35 @@
     </div>
 </div>
 
+<!-- Libros Destacados -->
+{% if libros_destacados %}
+<div class="row mt-5">
+    <div class="col-12">
+        <h2 class="text-center mb-4">Libros Destacados</h2>
+        <div class="row g-4">
+            {% for libro in libros_destacados %}
+            <div class="col-md-4">
+                <div class="card h-100 shadow-sm">
+                    <div class="card-body text-center">
+                        {% if libro.portada %}
+                            <img src="{{ libro.portada.url }}" alt="{{ libro.titulo }}" class="img-fluid mb-3" style="max-height: 200px;">
+                        {% else %}
+                            <div class="bg-light p-4 mb-3">
+                                <span class="display-4">📚</span>
+                            </div>
+                        {% endif %}
+                        <h5 class="card-title">{{ libro.titulo }}</h5>
+                        <p class="card-text text-muted">Por {{ libro.autor }}</p>
+                        <p class="text-success fw-bold">${{ libro.precio|floatformat:0 }} CLP</p>
+                    </div>
+                </div>
+            </div>
+            {% endfor %}
+        </div>
+    </div>
+</div>
+{% endif %}
+
 <div class="row mt-5">
     <div class="col-12">
         <h2 class="text-center mb-4">¿Por qué elegirnos?</h2>
@@ -52,7 +82,7 @@
                     📖
                 </div>
                 <h4>Amplia Colección</h4>
-                <p>Miles de títulos disponibles en diferentes géneros y formatos.</p>
+                <p>{{ total_libros }} títulos disponibles en diferentes géneros y formatos.</p>
             </div>
             <div class="col-md-4 text-center">
                 <div class="feature-icon mb-3">

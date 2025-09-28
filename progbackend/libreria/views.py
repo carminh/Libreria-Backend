@@ -2,11 +2,31 @@ from django.shortcuts import render
 from .models import Libro, Contacto
 
 def home(request):
-    return render(request, 'libreria/home.html')
+    # Obtener estadísticas para mostrar en la página de inicio
+    total_libros = Libro.objects.count()
+    libros_destacados = Libro.objects.filter(disponible=True)[:3]
+    total_usuarios = Contacto.objects.count()
+    
+    context = {
+        'total_libros': total_libros,
+        'libros_destacados': libros_destacados,
+        'total_usuarios': total_usuarios
+    }
+    return render(request, 'libreria/home.html', context)
 
 def catalogo(request):
     libros = Libro.objects.all()
-    return render(request, 'libreria/catalogo.html', {'libros': libros})
+    total_libros = libros.count()
+    libros_disponibles = libros.filter(disponible=True).count()
+    total_contactos = Contacto.objects.count()
+    
+    context = {
+        'libros': libros,
+        'total_libros': total_libros,
+        'libros_disponibles': libros_disponibles,
+        'total_contactos': total_contactos
+    }
+    return render(request, 'libreria/catalogo.html', context)
 
 def contacto(request):
     if request.method == "POST":

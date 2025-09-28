@@ -10,6 +10,38 @@
     </div>
 </div>
 
+<!-- Estadísticas dinámicas del modelo -->
+<div class="row mb-4">
+    <div class="col-12">
+        <div class="row g-3">
+            <div class="col-md-4">
+                <div class="card bg-primary text-white">
+                    <div class="card-body text-center">
+                        <h3 class="card-title">{{ total_libros }}</h3>
+                        <p class="card-text">Total de Libros</p>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-4">
+                <div class="card bg-success text-white">
+                    <div class="card-body text-center">
+                        <h3 class="card-title">{{ libros_disponibles }}</h3>
+                        <p class="card-text">Disponibles</p>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-4">
+                <div class="card bg-info text-white">
+                    <div class="card-body text-center">
+                        <h3 class="card-title">{{ total_contactos }}</h3>
+                        <p class="card-text">Usuarios Registrados</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
 <div class="row g-4">
     {% for libro in libros %}
     <div class="col-lg-4 col-md-6">
