@@ -6,7 +6,6 @@ from django.contrib.auth.forms import AuthenticationForm
 from django.contrib import messages
 
 def home(request):
-    # Obtener estadísticas para mostrar en la página de inicio
     total_libros = Libro.objects.count()
     libros_destacados = Libro.objects.filter(disponible=True)[:3]
     total_usuarios = Contacto.objects.count()
@@ -51,23 +50,24 @@ def clientes(request):
 def gracias(request):
     return render(request, 'libreria/gracias.html')
 
+# 🔒 Vista protegida: solo usuarios logueados
 @login_required
 def perfil_usuario(request):
-    return render(request, 'perfil.html')
+    return render(request, 'libreria/perfil.html')
 
 def login_view(request):
+    form = AuthenticationForm(request, data=request.POST or None)
     if request.method == 'POST':
-        username = request.POST['username']
-        password = request.POST['password']
-        user = authenticate(request, username=username, password=password)
-        if user is not None:
+        if form.is_valid():
+            user = form.get_user()
             login(request, user)
-            return redirect('home')
+            messages.success(request, f'¡Bienvenido, {user.username}!')
+            return redirect('libreria:home')
         else:
             messages.error(request, 'Usuario o contraseña incorrectos.')
-    return render(request, 'login.html')
+    return render(request, 'libreria/login.html', {'form': form})
 
 def logout_view(request):
     logout(request)
     messages.info(request, 'Has cerrado sesión correctamente.')
-    return redirect('home')
+    return redirect('libreria:home')

@@ -1,0 +1,12 @@
+{% extends 'libreria/base.html' %}
+
+{% block title %}Mi Perfil{% endblock %}
+
+{% block content %}
+<div class="container mt-4 text-center">
+    <h2>👤 Mi Perfil</h2>
+    <p><strong>Usuario:</strong> {{ user.username }}</p>
+    <p><strong>Email:</strong> {{ user.email }}</p>
+    <p><strong>Miembro desde:</strong> {{ user.date_joined|date:"d/m/Y" }}</p>
+</div>
+{% endblock %}
