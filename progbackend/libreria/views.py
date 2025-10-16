@@ -31,6 +31,7 @@ def catalogo(request):
     }
     return render(request, 'libreria/catalogo.html', context)
 
+@login_required(login_url='libreria:login')
 def contacto(request):
     if request.method == "POST":
         nombre = request.POST.get("nombre")
@@ -41,7 +42,8 @@ def contacto(request):
         Contacto.objects.create(nombre=nombre, email=email, edad=edad, mensaje=mensaje)
         return render(request, 'libreria/gracias.html')
     
-    return render(request, 'libreria/contacto.html')
+    return render(request, 'libreria/contacto.html') 
+
 
 def clientes(request):
     contactos = Contacto.objects.all().order_by('-fecha')  

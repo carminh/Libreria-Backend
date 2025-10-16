@@ -28,10 +28,17 @@
                     </li>
                     <li class="nav-item">
                         <a class="nav-link" href="{% url 'libreria:catalogo' %}">Catálogo</a>
+                    </li>                    
+                    <li class="nav-item">
+                        <a class="nav-link" href="{% url 'libreria:clientes' %}">Clientes</a>
                     </li>
+                     {% if user.is_authenticated %} 
                     <li class="nav-item">
                         <a class="nav-link" href="{% url 'libreria:contacto' %}">Contacto</a>
                     </li>
+                    {% endif %}
+
+
 
                     {% if user.is_authenticated %}
                         <li class="nav-item dropdown">
