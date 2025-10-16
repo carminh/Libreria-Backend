@@ -1,5 +1,9 @@
-from django.shortcuts import render
+from django.shortcuts import render, redirect
 from .models import Libro, Contacto
+from django.contrib.auth.decorators import login_required
+from django.contrib.auth import authenticate, login, logout
+from django.contrib.auth.forms import AuthenticationForm
+from django.contrib import messages
 
 def home(request):
     # Obtener estadísticas para mostrar en la página de inicio
@@ -46,3 +50,24 @@ def clientes(request):
 
 def gracias(request):
     return render(request, 'libreria/gracias.html')
+
+@login_required
+def perfil_usuario(request):
+    return render(request, 'perfil.html')
+
+def login_view(request):
+    if request.method == 'POST':
+        username = request.POST['username']
+        password = request.POST['password']
+        user = authenticate(request, username=username, password=password)
+        if user is not None:
+            login(request, user)
+            return redirect('home')
+        else:
+            messages.error(request, 'Usuario o contraseña incorrectos.')
+    return render(request, 'login.html')
+
+def logout_view(request):
+    logout(request)
+    messages.info(request, 'Has cerrado sesión correctamente.')
+    return redirect('home')
