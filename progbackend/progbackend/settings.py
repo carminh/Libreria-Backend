@@ -129,3 +129,8 @@ DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
 # Media files (para subir imágenes)
 MEDIA_URL = '/media/'
 MEDIA_ROOT = BASE_DIR / 'media'
+
+# Google Books API Configuration
+# Para obtener una API key, visita: https://console.developers.google.com/
+# Habilita la Google Books API y crea una API key
+GOOGLE_BOOKS_API_KEY = None  # Configura tu API key aquí
